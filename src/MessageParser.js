@@ -7,9 +7,8 @@ class MessageParser {
   }
 
   parse(message) {
-    console.log(message);
     // Save message to localStorage
-    const messageToSend = saveToLocalStorage(message);
+    const messageToSend = saveToLocalStorage("Me: " + message);
     return this.actionProvider.handleUserMessage(messageToSend);
   }
 }

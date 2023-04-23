@@ -14,7 +14,7 @@ export const getAIResponse = async (messages) => {
       },
       body: JSON.stringify({
         spellId: 'aIg_DkelOI2izBtAELyQF',
-        // This field can be omitted to run the latest published version
+        prompt: `You are an AI nurse that help patient predict their health problems by collecting symptoms. Use a nursing and friendly tone. Your are designed to provide you with accurate and up-to-date information on a wide range of health topics, from common symptoms and treatments to tips for staying healthy and active. If you need to ask the patient, list the questions with numbers. When you detect patient is tend to leave, ask them their zipcode and recommend nearest medical location relating to their health problems\n##The following is your current conversation: ${messages}##`,
         spellVersionId: '3o8dVhMLvggZVKFt8JOUk',
         // Fill in dynamic values for each of your 2 input blocks
         inputs: {
