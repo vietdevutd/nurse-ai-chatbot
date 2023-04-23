@@ -9,7 +9,7 @@
       method: 'POST',
       headers: {
         // This is your API key
-        authorization: 'Bearer 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',
+        authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
         accept: 'application/json',
         'content-type': 'application/json',
       },
