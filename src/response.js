@@ -1,28 +1,26 @@
-export const getAIResponse = async (messages) => {
+  export const getAIResponse = async (messages) => {
     const response = await fetchAIResponse(messages);
-    return response.outputs.text_output;
+    console.log("CHAT LOG: " + messages)
+    return response.choices[0].text;
   };
   
   const fetchAIResponse = async (messages) => {
-    const response = await fetch('https://api.respell.ai/v1/run', {
+    const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
       headers: {
         // This is your API key
-        authorization: 'Bearer 433b0518-0519-42e9-af5d-224987f1a62a',
+        authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
         accept: 'application/json',
         'content-type': 'application/json',
       },
       body: JSON.stringify({
-        spellId: 'aIg_DkelOI2izBtAELyQF',
-        prompt: `You are an AI nurse that help patient predict their health problems by collecting symptoms. Use a nursing and friendly tone. Your are designed to provide you with accurate and up-to-date information on a wide range of health topics, from common symptoms and treatments to tips for staying healthy and active. If you need to ask the patient, list the questions with numbers. When you detect patient is tend to leave, ask them their zipcode and recommend nearest medical location relating to their health problems\n##The following is your current conversation: ${messages}##`,
-        spellVersionId: '3o8dVhMLvggZVKFt8JOUk',
-        // Fill in dynamic values for each of your 2 input blocks
-        inputs: {
-          user: messages,
-          prompt: 'You are an AI nurse that help patient predict their health problems by collecting symptoms. Use a nursing and friendly tone. Your are designed to provide you with accurate and up-to-date information on a wide range of health topics, from common symptoms and treatments to tips for staying healthy and active. If you need to ask the patient, list the questions with numbers. When you detect patient is tend to leave, ask them their zipcode and recommend nearest medical location relating to their health problems',
-        },
+        model: "text-davinci-003",
+        prompt: `You are an AI nurse that help patient predict their health problems by collecting symptoms. Use a nursing and friendly tone. Your are designed to provide you with accurate and up-to-date information on a wide range of health topics, from common symptoms and treatments to tips for staying healthy and active. If you need to ask the patient, list the questions with numbers. When you detect patient is tend to leave, ask them their zipcode and recommend nearest medical location relating to their health problems\n${messages}`,
+        temperature: 0.7,
+        max_tokens: 500,
+        n: 1,
+        stop: null
       }),
     });
     return await response.json();
   };
-  
