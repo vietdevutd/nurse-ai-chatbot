@@ -9,17 +9,21 @@ class ActionProvider {
   }
   
   handleUserMessage(message) {
+    if (message) {
     // Call the getChatResponse function and handle the promise
-    getAIResponse(message).then((response) => {
-      // Save response to localStorage
-      saveToLocalStorage("You: " + response)
-      // Use the response to create a new bot message
+      getAIResponse(message).then((response) => {
+        // Save response to localStorage
+        //if(response)
+        saveToLocalStorage("You: " + response)
+        // Use the response to create a new bot message
 
-      const botMessage = this.createChatBotMessage(response);
+        const botMessage = this.createChatBotMessage(response);
 
-      // Update the chat state with the new message
-      this.addMessageToState(botMessage);
-    });
+        // Update the chat state with the new message
+        this.addMessageToState(botMessage);
+      });
+    }
+    
   }
 
   addMessageToState = (message) => {

@@ -1,7 +1,10 @@
   export const getAIResponse = async (messages) => {
     const response = await fetchAIResponse(messages);
     console.log("CHAT LOG: " + messages)
-    return response.choices[0].text.replace("You: ", "");
+    let text = response.choices[0].text;
+    text = text.replace("You: ", "");
+    text = text.replace("Patient: ", "");
+    return text;
   };
   
   const fetchAIResponse = async (messages) => {
