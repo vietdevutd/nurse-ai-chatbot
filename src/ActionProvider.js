@@ -12,7 +12,7 @@ class ActionProvider {
     // Call the getChatResponse function and handle the promise
     getAIResponse(message).then((response) => {
       // Save response to localStorage
-      saveToLocalStorage("Your response: " + response)
+      saveToLocalStorage("You: " + response)
       // Use the response to create a new bot message
 
       const botMessage = this.createChatBotMessage(response);
