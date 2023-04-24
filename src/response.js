@@ -1,12 +1,16 @@
   export const getAIResponse = async (messages) => {
     const response = await fetchAIResponse(messages);
     console.log("CHAT LOG: " + messages)
-    let text = response.choices[0].text;
-    text = text.replace("You: ", "");
-    text = text.replace("Patient: ", "");
-    return text;
+    return sanitizer(response.choices[0].text);
   };
   
+const sanitizer = (text) => {
+  text = text.replace("You: ", "");
+  text = text.replace("Patient: ", "");
+  text = text.replace("Nurse AI: ", "");
+  return text
+}
+
   const fetchAIResponse = async (messages) => {
     const response = await fetch('https://api.openai.com/v1/completions', {
       method: 'POST',
