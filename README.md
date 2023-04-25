@@ -48,7 +48,7 @@ To use the NurseAI Chatbot, simply type your symptoms into the chat window and h
 
 ## Live Demo
 
-Demo URL: https://3kc7nr-3000.csb.app/
+Demo URL: https://y22pqd-3000.csb.app/
 
 ## Use Cases
 
