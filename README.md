@@ -1,6 +1,6 @@
 # NurseAI Chatbot
 
-The NurseAI Chatbot is a conversational interface designed to assist users in identifying their health symptoms and predicting potential treatments. The chatbot uses natural language processing (NLP) to understand user input and provide appropriate responses. This version of the NurseAI Chatbot is built using React and powered by RespellAI and GPT-3 model.
+The NurseAI Chatbot is a conversational interface designed to assist users in identifying their health symptoms and predicting potential treatments. The chatbot uses natural language processing (NLP) to understand user input and provide appropriate responses. This version of the NurseAI Chatbot is built using React and powered by OpenAI GPT-3 model.
 
 ## Features
 
